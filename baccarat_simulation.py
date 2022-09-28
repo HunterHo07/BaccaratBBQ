@@ -151,7 +151,7 @@ def test_1():
 # test_1()
 
 
-#remove P & T
+# Step 4 remove P & T
 def test_case():
   results = play_game()       # Take the results from random game
   results = results[1]        # take out the number of the game
@@ -169,14 +169,14 @@ def test_case():
   # print(results_test1)
   return(results_test1)
 
-# step 4 create & store data
+# step Y create & store data
 def create_data():
   # import json
   store_data = []
   # with open('data.json', 'w') as f:
   #   for i in range(100):
   #     json.dump(test_case(), f)
-  with open('Output_data.txt', 'w') as f:
+  with open('Output_data1.txt', 'w') as f:
     for i in range(3000):
       f.write(f"{test_case()}\n")
 # create_data()
