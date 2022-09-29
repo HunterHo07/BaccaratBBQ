@@ -115,36 +115,54 @@ def test_7():
       W1_win+=1
       
 
-    if skip2 > 4:
+    if skip2 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L2_lose+=1
-        skip2_win-=1
-        # skip2=0
       else:
         W2_win+=1
-        skip2_win+=1
-        if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-          L2_lose+=3
-          skip2_win-=3
+        if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+          L2_lose+=1
           skip2=0
         else:
           W2_win+=1
-          skip2_win+=1
           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
             L2_lose+=3
-            skip2_win-=3
           else:
             W2_win+=1
-            skip2_win+=1
-
-
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 2:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 5:
       skip2+=1
 
-    if int(test_1[2][1:]) > 3:  #if 1st or 2nd B- is more than 3 win in the row
-      L3_lose+=7
-    else:
-      W3_win+=1
+
+
+    if skip3 > 5:  # 6-Skip
+      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+        L3_lose+=1
+        # skip3=0
+      else:
+        W3_win+=1
+        skip3_win+=1
+        if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+          L3_lose+=1
+          skip3=0
+        else:
+          W3_win+=1
+          skip3_win+=1
+          if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
+            L3_lose+=3
+            # skip3=0
+          else:
+            W3_win+=1
+            skip3_win+=1
+            # skip3=0
+    # if skip3_win > 16:  3 Win: 37897  | Lose: 38024  || Total: 75921 | EV -0.08  || Profit/loss: -127
+    # if skip3_win > 14:  3 Win: 37456  | Lose: 37541  || Total: 74997 | EV -0.06  || Profit/loss: -85
+    # if skip3_win > 13:  3 Win: 37253  | Lose: 37379  || Total: 74632 | EV -0.08  || Profit/loss: -126
+    if skip3_win > 14: # 15-wins Stop
+      skip3=0
+      skip3_win=0
+    # if int(test_1[0][1:]) > 5 or int(test_1[2][1:]) > 4:  3 Win: 13492  | Lose: 13291  || Total: 26783 | EV 0.38  || Profit/loss: 201
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 3:
+      skip3+=1
 
     if skip4 > 4:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
