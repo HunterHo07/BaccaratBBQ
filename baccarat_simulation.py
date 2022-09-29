@@ -511,10 +511,9 @@ def test_7():
         L5_lose+=1
       else:
         W5_win+=1
-        skip5_win+=1
         #Bet-2
-        if int(test_1[2][1:]) > 2:
-          L5_lose+=3
+        if int(test_1[2][1:]) > 1:
+          L5_lose+=1
           skip5=0
         else:
           W5_win+=1
@@ -523,9 +522,7 @@ def test_7():
             L5_lose+=3
           else:
             W5_win+=1
-        if skip5_win > 3:
-          skip5=0
-    if int(test_1[0][1:]) > 1:
+    if int(test_1[0][1:]) > 2:
       skip5+=1
 
 

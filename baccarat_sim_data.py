@@ -106,48 +106,53 @@ def test_7():
       L_lose+=1
     else:
       W_win+=1
+      if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+        L_lose+=1
+      else:
+        W_win+=1
+        if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
+          L_lose+=3
+        else:
+          W_win+=1
 
 
-    if skip1 > skip_round:
+    if skip1 > 5:
       if int(test_1[0][1:]) > 1:
         L1_lose+=1
-        skip1=0
       else:
         W1_win+=1
-        if int(test_1[2][1:]) > 2:
-          L1_lose+=3
+        if int(test_1[2][1:]) > 1:
+          L1_lose+=1
+          skip1=0
         else:
           W1_win+=1
           if int(test_1[4][1:]) > 2:
             L1_lose+=3
           else:
             W1_win+=1
-    if int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 2:
+    # if int(test_1[2][1:]) > 4:
+    # if int(test_1[0][1:]) > 2:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 4:
       skip1+=1
 
 
     if skip2 > 4:
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L2_lose+=1
-        skip2_win-=1
+      if int(test_1[0][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
+        L2_lose+=3
         # skip2=0
       else:
         W2_win+=1
         skip2_win+=1
         if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
           L2_lose+=3
-          skip2_win-=3
           skip2=0
         else:
           W2_win+=1
-          skip2_win+=1
           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
             L2_lose+=3
-            skip2_win-=3
           else:
             W2_win+=1
-            skip2_win+=1
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 2:
+    if int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 2:
       skip2+=1
 
 
@@ -199,6 +204,7 @@ def test_7():
     if skip5 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L5_lose+=1
+        # skip5=0
       else:
         W5_win+=1
         #Bet-2
@@ -210,9 +216,9 @@ def test_7():
           #Bet-3
           if int(test_1[4][1:]) > 2:
             L5_lose+=3
+            # skip5=0
           else:
             W5_win+=1
-            # skip5=0
         # if skip5_win > 2:
         #   skip5=0
     if int(test_1[0][1:]) > 2:
