@@ -118,8 +118,10 @@ def test_7():
     if skip2 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L2_lose+=1
+        # skip2=0
       else:
         W2_win+=1
+        skip2_win+=1
         if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
           L2_lose+=1
           skip2=0
@@ -132,37 +134,10 @@ def test_7():
     if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 5:
       skip2+=1
 
-
-
-    if skip3 > 5:  # 6-Skip
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L3_lose+=1
-        # skip3=0
-      else:
-        W3_win+=1
-        skip3_win+=1
-        if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-          L3_lose+=1
-          skip3=0
-        else:
-          W3_win+=1
-          skip3_win+=1
-          if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-            L3_lose+=3
-            # skip3=0
-          else:
-            W3_win+=1
-            skip3_win+=1
-            # skip3=0
-    # if skip3_win > 16:  3 Win: 37897  | Lose: 38024  || Total: 75921 | EV -0.08  || Profit/loss: -127
-    # if skip3_win > 14:  3 Win: 37456  | Lose: 37541  || Total: 74997 | EV -0.06  || Profit/loss: -85
-    # if skip3_win > 13:  3 Win: 37253  | Lose: 37379  || Total: 74632 | EV -0.08  || Profit/loss: -126
-    if skip3_win > 14: # 15-wins Stop
-      skip3=0
-      skip3_win=0
-    # if int(test_1[0][1:]) > 5 or int(test_1[2][1:]) > 4:  3 Win: 13492  | Lose: 13291  || Total: 26783 | EV 0.38  || Profit/loss: 201
-    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 3:
-      skip3+=1
+    if int(test_1[2][1:]) > 3:  #if 1st or 2nd B- is more than 3 win in the row
+      L3_lose+=7
+    else:
+      W3_win+=1
 
     if skip4 > 4:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
@@ -189,233 +164,29 @@ def test_7():
     if skip5 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L5_lose+=1
+        skip5=0
       else:
         W5_win+=1
+        skip5_win+=1
         #Bet-2
         if int(test_1[2][1:]) > 1:
           L5_lose+=1
-          skip5=0
+          # skip5=0
         else:
           W5_win+=1
+          skip5_win+=1
           #Bet-3
           if int(test_1[4][1:]) > 2:
             L5_lose+=3
+            # skip5=0
           else:
             W5_win+=1
-            # skip5=0
-        # if skip5_win > 2:
-        #   skip5=0
-    if int(test_1[0][1:]) > 2:
+            skip5_win+=1
+    if skip5_win > 9:
+      skip5=0
+      skip5_win=0
+    if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
       skip5+=1
-
-      # #Bet-2
-      # if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-      #   L_lose+=1
-      # else:
-      #   W_win+=1
-
-        # #Bet-3
-        # if int(test_1[4][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        #   L_lose+=1
-        # else:
-        #   W_win+=1
-    # print(test_1)
-
-
-# ==================================================================== test 1
-
-    #Bet-1
-#     if skip1 > 2:
-#       #Bet-1
-#       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-#         L1_lose+=1
-#         skip1=0
-#       else:
-#         W1_win+=1
-#         skip1_win+=1
-
-#         #Bet-2
-#         if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#           L1_lose+=3
-#           skip1=0
-#         else:
-#           W1_win+=1
-#           skip1_win+=1
-
-#           #Bet-3
-#           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#             L1_lose+=3
-#             skip1=0
-#           else:
-#             W1_win+=1
-#             skip1_win+=1
-
-#     if int(test_1[0][1:]) > 2 and int(test_1[2][1:]) > 2:
-#       skip1+=1
-#     if skip1_win > 8:
-#       skip1_win=0
-#       skip1=0
-
-
-
-
-
-# # ==================================================================== test 2
-
-#     #Bet-1
-#     if skip2 > 2:
-#       #Bet-1
-#       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-#         L2_lose+=1
-#         skip2=0
-#       else:
-#         W2_win+=1
-#         skip2_win+=1
-
-#         #Bet-2
-#         if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#           L2_lose+=3
-#           skip2=0
-#         else:
-#           W2_win+=1
-#           skip2_win+=1
-
-#           #Bet-3
-#           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#             L2_lose+=3
-#             skip2=0
-#           else:
-#             W2_win+=1
-#             skip2_win+=1
-
-#     if int(test_1[0][1:]) > 2 and int(test_1[2][1:]) > 2:
-#       skip2+=1
-#     if skip2_win > 7:
-#       skip2_win=0
-#       skip2=0
-
-
-
-# # ==================================================================== test 3
-
-
-
-#     #Bet-1
-#     if skip3 > 2:
-#       #Bet-1
-#       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-#         L3_lose+=1
-#         skip3=0
-#       else:
-#         W3_win+=1
-#         skip3_win+=1
-
-#         #Bet-2
-#         if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#           L3_lose+=3
-#           skip3=0
-#         else:
-#           W3_win+=1
-#           skip3_win+=1
-
-#           #Bet-3
-#           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#             L3_lose+=3
-#             skip3=0
-#           else:
-#             W3_win+=1
-#             skip3_win+=1
-
-#     if int(test_1[0][1:]) > 2 and int(test_1[2][1:]) > 2:
-#       skip3+=1
-#     if skip3_win > 6:
-#       skip3_win=0
-#       skip3=0
-
-
-
-# # ==================================================================== test 4
-
-
-
-#     #Bet-1
-#     if skip4 > 2:
-#       #Bet-1
-#       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-#         L4_lose+=1
-#         skip4=0
-#       else:
-#         W4_win+=1
-#         skip4_win+=1
-
-#         #Bet-2
-#         if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#           L4_lose+=3
-#           skip4=0
-#         else:
-#           W4_win+=1
-#           skip4_win+=1
-
-#           #Bet-3
-#           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#             L4_lose+=3
-#             skip4=0
-#           else:
-#             W4_win+=1
-#             skip4_win+=1
-
-#     if int(test_1[0][1:]) > 2 and int(test_1[2][1:]) > 2:
-#       skip4+=1
-#     if skip4_win > 5:
-#       skip4_win=0
-#       skip4=0
-
-
-
-# # ==================================================================== test 5
-
-
-
-#     #Bet-1
-#     if skip5 > 2:
-#       #Bet-1
-#       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-#         L5_lose+=1
-#         skip5=0
-#       else:
-#         W5_win+=1
-#         skip5_win+=1
-
-#         #Bet-2
-#         if int(test_1[2][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#           L5_lose+=3
-#           skip5=0
-#         else:
-#           W5_win+=1
-#           skip5_win+=1
-
-#           #Bet-3
-#           if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-#             L5_lose+=3
-#             skip5=0
-#           else:
-#             W5_win+=1
-#             skip5_win+=1
-
-#     if int(test_1[0][1:]) > 2 and int(test_1[2][1:]) > 2:
-#       skip5+=1
-#     if skip5_win > 4:
-#       skip5_win=0
-#       skip5=0
-
-
-# ==================================================================== test 4
-
-
-
-
-
-
 
 
 
