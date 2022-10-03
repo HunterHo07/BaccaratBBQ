@@ -6,7 +6,7 @@ with open('C:\\Users\\user\\Desktop\\Desktop\\projects\\Output_data0.txt', 'r') 
 	lines = f.readlines()
 # print(lines[0])
 
-for i in range(500000):
+for i in range(1000000):
 	data_in	= lines[i].replace("[","").replace("'","").replace("]","").replace("\n","").replace(" ","")
 	data_holder.append(data_in.split(","))
 	# data_holder.append(lines[i])
@@ -66,88 +66,123 @@ def test_7():
 
 
     if skip1 > 5:
-      if int(test_1[0][1:]) > 1:
+      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L1_lose+=1
+        skip1=0
       else:
         W1_win+=1
+        skip1_win+=1
+        #Bet-2
         if int(test_1[2][1:]) > 1:
           L1_lose+=1
           skip1=0
         else:
           W1_win+=1
+          skip1_win+=1
+          # skip1=0
+          #Bet-3
           if int(test_1[4][1:]) > 2:
             L1_lose+=3
+            # skip1=0
           else:
             W1_win+=1
-    # if int(test_1[2][1:]) > 4:
-    # if int(test_1[0][1:]) > 2:
-    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 4:
+            skip1_win+=1
+    if skip1_win > 9:
+      skip1=0
+      skip1_win=0
+    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 2:
       skip1+=1
 
 
     if skip2 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L2_lose+=1
-        # skip2=0
+        skip2=0
       else:
         W2_win+=1
         skip2_win+=1
-        if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+        #Bet-2
+        if int(test_1[2][1:]) > 1:
           L2_lose+=1
-          skip2=0
+          # skip2=0
         else:
+          # skip2=0
           W2_win+=1
-          if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
+          skip2_win+=1
+          #Bet-3
+          if int(test_1[4][1:]) > 2:
             L2_lose+=3
+            # skip2=0
           else:
             W2_win+=1
-    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 5:
+            skip2_win+=1
+    if skip2_win > 9:
+      # skip2=0
+      skip2_win=0
+    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2:
       skip2+=1
 
 
-    if skip3 > 4:
+    if skip3 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L3_lose+=1
-        # skip3=0
+        skip3=0
       else:
         W3_win+=1
-        if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+        skip3_win+=1
+        #Bet-2
+        if int(test_1[2][1:]) > 1:
           L3_lose+=1
-          # skip3=0
+          skip3=0
         else:
           W3_win+=1
-          if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
+          skip3_win+=1
+          #Bet-3
+          if int(test_1[4][1:]) > 2:
             L3_lose+=3
             # skip3=0
           else:
             W3_win+=1
-        # if skip3_win > 1:
-    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2:
+            skip3_win+=1
+            # skip3=0
+    if skip3_win > 9:
+      skip3=0
+      skip3_win=0
+    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    if int(test_1[2][1:]) > 2:
       skip3+=1
 
     
-    if skip4 > skip_round:
+    if skip3 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L4_lose+=1
-        # skip4=0
+        L3_lose+=1
+        skip3=0
       else:
-        W4_win+=1
+        W3_win+=1
+        skip3_win+=1
         #Bet-2
         if int(test_1[2][1:]) > 1:
-          L4_lose+=1
-          skip4=0
+          L3_lose+=1
+          skip3=0
         else:
-          W4_win+=1
+          W3_win+=1
+          skip3_win+=1
           #Bet-3
           if int(test_1[4][1:]) > 2:
-            L4_lose+=3
-            # skip4=0
+            L3_lose+=3
+            # skip3=0
           else:
-            W4_win+=1
-        # if skip4_win > 2:
-        #   skip4=0
-    if int(test_1[0][1:]) > 2:
-      skip4+=1
+            W3_win+=1
+            skip3_win+=1
+            # skip3=0
+    if skip3_win > 9:
+      skip3=0
+      skip3_win=0
+    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    if int(test_1[2][1:]) > 2:
+      skip3+=1
 
 
     if skip5 > 5:
@@ -176,7 +211,7 @@ def test_7():
       skip5=0
       skip5_win=0
     # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 1:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2:
       skip5+=1
 
 
