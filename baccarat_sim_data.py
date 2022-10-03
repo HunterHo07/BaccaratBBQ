@@ -2,11 +2,13 @@ import math
 
 
 data_holder = []
-with open('C:\\Users\\user\\Desktop\\Desktop\\projects\\Output_data0.txt', 'r') as f:
+# with open('C:\\Users\\user\\Desktop\\Desktop\\projects\\Output_data0.txt', 'r') as f:
+with open('C:\\Users\\user\\Desktop\\Desktop\\projects\\Bac_all_clean.txt', 'r') as f:
 	lines = f.readlines()
 # print(lines[0])
 
-for i in range(1000000):
+# for i in range(1000000):
+for i in range(249999):
 	data_in	= lines[i].replace("[","").replace("'","").replace("]","").replace("\n","").replace(" ","")
 	data_holder.append(data_in.split(","))
 	# data_holder.append(lines[i])
