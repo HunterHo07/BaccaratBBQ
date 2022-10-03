@@ -172,7 +172,7 @@ def test_7():
           #Bet-3
           if int(test_1[4][1:]) > 2:
             L4_lose+=3
-            # skip4=0
+            skip4=0
           else:
             W4_win+=1
             skip4_win+=1
