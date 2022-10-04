@@ -17,8 +17,9 @@ for i in range(1000000):
 # print(data_holder[45322])
 
 def count_total(W_win,L_lose):
-  total = W_win - L_lose
   total_0 = W_win + L_lose
+  total = W_win - L_lose
+  total_per = 0
   if total_0 > 0 : total_per = (W_win / total_0) * 100 - 50 #2.3 - 5.51
   return(W_win,L_lose,total_0,total_per,total)
 
@@ -43,179 +44,178 @@ def test_7():
   skip3    = 0 
   skip4    = 0 
   skip5    = 0
-  skip_win = 1000
-  skip1_win= 1000
-  skip2_win= 1000 
-  skip3_win= 1000
-  skip4_win= 1000
-  skip5_win= 1000
-  skip_round = 4
+  skip1_win= 0
+  skip2_win= 0 
+  skip3_win= 0
+  skip4_win= 0
+  skip5_win= 0
   for test_1 in data_holder:  #10k results about 4.5sec
     # print(test_1)
 	
     # Bet-1
     if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-      L_lose+=1
-    else:
       W_win+=1
+    else:
+      L_lose+=1
       if int(test_1[2][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L_lose+=1
-      else:
         W_win+=1
-        if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
-          L_lose+=3
-        else:
-          W_win+=1
-
-
-    if skip1 > 5:
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L1_lose+=1
-        skip1=0
       else:
+        L_lose+=1
+        # if int(test_1[4][1:]) > 2:  #if 1st or 2nd B- is more than 3 win in the row
+        #   W_win+=3
+        # else:
+        #   L_lose+=1
+        #0 Win: 931137  | Lose: 957992  || Total: 1889129 | EV -0.71  || Profit/loss: -26855
+
+
+    if skip1 > 2:
+      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         W1_win+=1
-        skip1_win+=1
+        # skip1=0
+      else:
+        L1_lose+=1
+        # skip1_win+=1
+        # skip1=0
         #Bet-2
         if int(test_1[2][1:]) > 1:
-          L1_lose+=1
+          W1_win+=1
           skip1=0
         else:
-          W1_win+=1
-          skip1_win+=1
+          L1_lose+=1
+          # skip1_win+=1
           # skip1=0
           #Bet-3
-          if int(test_1[4][1:]) > 2:
-            L1_lose+=3
-            # skip1=0
-          else:
-            W1_win+=1
-            skip1_win+=1
-    if skip1_win > 9:
+          # if int(test_1[4][1:]) > 1:
+          #   W1_win+=1
+          #   # skip1=0
+          # else:
+          #   L1_lose+=1
+          #   # skip1_win+=1
+    if skip1_win > 1:
       skip1=0
-      skip1_win=0
-    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 2:
+      # skip1_win=0
+    if int(test_1[0][1:]) == 1 and int(test_1[2][1:]) == 1:
       skip1+=1
 
 
-    if skip2 > 5:
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+    # if skip2 > 5:
+    if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+      L2_lose+=1
+      # skip2=0
+    else:
+      W2_win+=0.95
+      # skip2_win+=1
+      #Bet-2
+      if int(test_1[2][1:]) > 1:
         L2_lose+=1
-        skip2=0
+        # skip2=0
       else:
-        W2_win+=1
-        skip2_win+=1
-        #Bet-2
-        if int(test_1[2][1:]) > 1:
-          L2_lose+=1
-          skip2=0
-        else:
-          W2_win+=1
-          skip2_win+=1
-          # Bet-3
-          if int(test_1[4][1:]) > 2:
-            L2_lose+=3
-            # skip2=0
-          else:
-            W2_win+=1
-            skip2_win+=1
-            # skip2=0
-    if skip2_win > 9:
-      skip2=0
-      skip2_win=0
-    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 1 or int(test_1[4][1:]) > 1:
-      skip2+=1
+        W2_win+=0.95
+        # skip2_win+=1
+        # Bet-3
+        # if int(test_1[4][1:]) > 2:
+        #   L2_lose+=3
+        #   # skip2=0
+        # else:
+        #   W2_win+=0.95
+          # skip2_win+=1
+          # skip2=0
+    # if skip2_win > 9:
+    #   skip2=0
+    #   skip2_win=0
+    # # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    # if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 1 or int(test_1[4][1:]) > 1:
+    #   skip2+=1
 
 
-    if skip3 > 5:
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L3_lose+=1
-        # skip3=0
-      else:
-        W3_win+=1
-        skip3_win+=1
-        #Bet-2
-        if int(test_1[2][1:]) > 1:
-          L3_lose+=1
-          skip3=0
-        else:
-          W3_win+=1
-          skip3_win+=1
-          #Bet-3
-          if int(test_1[4][1:]) > 2:
-            L3_lose+=3
-            skip3=0
-          else:
-            W3_win+=1
-            skip3_win+=1
-            skip3=0
-    if skip3_win > 9:
-      skip3=0
-      skip3_win=0
-    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[2][1:]) > 2:
-      skip3+=1
+    # if skip3 > 5:
+    #   if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+    #     L3_lose+=1
+    #     # skip3=0
+    #   else:
+    #     W3_win+=1
+    #     skip3_win+=1
+    #     #Bet-2
+    #     if int(test_1[2][1:]) > 1:
+    #       L3_lose+=1
+    #       skip3=0
+    #     else:
+    #       W3_win+=1
+    #       skip3_win+=1
+    #       #Bet-3
+    #       if int(test_1[4][1:]) > 2:
+    #         L3_lose+=3
+    #         skip3=0
+    #       else:
+    #         W3_win+=1
+    #         skip3_win+=1
+    #         skip3=0
+    # if skip3_win > 9:
+    #   skip3=0
+    #   skip3_win=0
+    # # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    # if int(test_1[2][1:]) > 2:
+    #   skip3+=1
 
     
-    if skip4 > 5:
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L4_lose+=1
-        skip4=0
-      else:
-        W4_win+=1
-        skip4_win+=1
-        #Bet-2
-        if int(test_1[2][1:]) > 1:
-          L4_lose+=1
-          skip4=0
-        else:
-          W4_win+=1
-          skip4_win+=1
-          #Bet-3
-          if int(test_1[4][1:]) > 2:
-            L4_lose+=3
-            skip4=0
-          else:
-            W4_win+=1
-            skip4_win+=1
-            # skip4=0
-    if skip4_win > 9:
-      skip4=0
-      skip4_win=0
-    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[2][1:]) > 2:
-      skip4+=1
+    # if skip4 > 5:
+    #   if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+    #     L4_lose+=1
+    #     skip4=0
+    #   else:
+    #     W4_win+=1
+    #     skip4_win+=1
+    #     #Bet-2
+    #     if int(test_1[2][1:]) > 1:
+    #       L4_lose+=1
+    #       skip4=0
+    #     else:
+    #       W4_win+=1
+    #       skip4_win+=1
+    #       #Bet-3
+    #       if int(test_1[4][1:]) > 2:
+    #         L4_lose+=3
+    #         skip4=0
+    #       else:
+    #         W4_win+=1
+    #         skip4_win+=1
+    #         # skip4=0
+    # if skip4_win > 9:
+    #   skip4=0
+    #   skip4_win=0
+    # # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    # if int(test_1[2][1:]) > 2:
+    #   skip4+=1
 
 
-    if skip5 > 5:
-      if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
-        L5_lose+=1
-        skip5=0
-      else:
-        W5_win+=1
-        skip5_win+=1
-        #Bet-2
-        if int(test_1[2][1:]) > 1:
-          L5_lose+=1
-          # skip5=0
-        else:
-          skip5=0
-          W5_win+=1
-          skip5_win+=1
-          #Bet-3
-          if int(test_1[4][1:]) > 2:
-            L5_lose+=3
-            # skip5=0
-          else:
-            W5_win+=1
-            skip5_win+=1
-    if skip5_win > 9:
-      skip5=0
-      skip5_win=0
-    # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2:
-      skip5+=1
+    # if skip5 > 5:
+    #   if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
+    #     L5_lose+=1
+    #     skip5=0
+    #   else:
+    #     W5_win+=1
+    #     skip5_win+=1
+    #     #Bet-2
+    #     if int(test_1[2][1:]) > 1:
+    #       L5_lose+=1
+    #       # skip5=0
+    #     else:
+    #       skip5=0
+    #       W5_win+=1
+    #       skip5_win+=1
+    #       #Bet-3
+    #       if int(test_1[4][1:]) > 2:
+    #         L5_lose+=3
+    #         # skip5=0
+    #       else:
+    #         W5_win+=1
+    #         skip5_win+=1
+    # if skip5_win > 9:
+    #   skip5=0
+    #   skip5_win=0
+    # # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
+    # if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2:
+    #   skip5+=1
 
 
   #   # print(i,  "=" ,test_1)
@@ -227,12 +227,12 @@ def test_7():
   total_4 = count_total(W4_win,L4_lose)
   total_5 = count_total(W5_win,L5_lose)
   # print(skip2_win)
-  print("0 Win:", round(total_0[0],2) , " | Lose:", round(total_0[1],2) , " || Total:", round(total_0[2],2) , "| EV", round(total_0[3],2) , " || Profit/loss:", round(total_0[4],2) ,)
-  print("1 Win:", round(total_1[0],2) , " | Lose:", round(total_1[1],2) , " || Total:", round(total_1[2],2) , "| EV", round(total_1[3],2) , " || Profit/loss:", round(total_1[4],2) ,)
-  print("2 Win:", round(total_2[0],2) , " | Lose:", round(total_2[1],2) , " || Total:", round(total_2[2],2) , "| EV", round(total_2[3],2) , " || Profit/loss:", round(total_2[4],2) ,)
-  print("3 Win:", round(total_3[0],2) , " | Lose:", round(total_3[1],2) , " || Total:", round(total_3[2],2) , "| EV", round(total_3[3],2) , " || Profit/loss:", round(total_3[4],2) ,)
-  print("4 Win:", round(total_4[0],2) , " | Lose:", round(total_4[1],2) , " || Total:", round(total_4[2],2) , "| EV", round(total_4[3],2) , " || Profit/loss:", round(total_4[4],2) ,)
-  print("5 Win:", round(total_5[0],2) , " | Lose:", round(total_5[1],2) , " || Total:", round(total_5[2],2) , "| EV", round(total_5[3],2) , " || Profit/loss:", round(total_5[4],2) ,)
+  print("0 Win:", round(total_0[0],None) , " | Lose:", round(total_0[1],None) , " || Total:", round(total_0[2],2) , "| EV", round(total_0[3],2) , " || Profit/loss:", round(total_0[4],2) ,)
+  print("1 Win:", round(total_1[0],None) , " | Lose:", round(total_1[1],None) , " || Total:", round(total_1[2],2) , "| EV", round(total_1[3],2) , " || Profit/loss:", round(total_1[4],2) ,)
+  print("2 Win:", round(total_2[0],None) , " | Lose:", round(total_2[1],None) , " || Total:", round(total_2[2],2) , "| EV", round(total_2[3],2) , " || Profit/loss:", round(total_2[4],2) ,)
+  print("3 Win:", round(total_3[0],None) , " | Lose:", round(total_3[1],None) , " || Total:", round(total_3[2],2) , "| EV", round(total_3[3],2) , " || Profit/loss:", round(total_3[4],2) ,)
+  print("4 Win:", round(total_4[0],None) , " | Lose:", round(total_4[1],None) , " || Total:", round(total_4[2],2) , "| EV", round(total_4[3],2) , " || Profit/loss:", round(total_4[4],2) ,)
+  print("5 Win:", round(total_5[0],None) , " | Lose:", round(total_5[1],None) , " || Total:", round(total_5[2],2) , "| EV", round(total_5[3],2) , " || Profit/loss:", round(total_5[4],2) ,)
 
 test_7()
 
