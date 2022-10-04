@@ -162,7 +162,7 @@ def test_case():
   # while results_test1[2][0] == "P" or results_test1[2][0] == "T":
   #   results_test1.pop(2)
 
-  if results_test1[0][0] == "P":  # pop 1st T or P
+  if results_test1[0][0] == "B":  # pop 1st T or P
     results_test1 = results_test1[1:]
 
   # print(results)
@@ -176,10 +176,10 @@ def create_data():
   # with open('data.json', 'w') as f:
   #   for i in range(100):
   #     json.dump(test_case(), f)
-  with open('Output_data1.txt', 'w') as f:
-    for i in range(3000):
+  with open('Output_data0.txt', 'w') as f:
+    for i in range(1000001):
       f.write(f"{test_case()}\n")
-# create_data()
+create_data()
 
 
 # Step x play many tables simulation
@@ -653,7 +653,7 @@ def test_7():
 # 1-2 Win-3: 3005  | Lose-3: 2451  || Total: 554 | 55.08
 # 1-1 Win-2: 3008  | Lose-2: 2478  || Total: 530 | 54.83
 # 1-0 Win-1: 113706  | Lose-2: 115821  || Total: -2115 | 49.54
-test_7()
+# test_7()
 
 
 # 0 Win: 1134018  | Lose: 1167739  || Total: 2301757 | EV -0.73  || Profit/loss: -33721
