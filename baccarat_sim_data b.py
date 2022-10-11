@@ -310,10 +310,8 @@ def test_122():
       skip1=0
       skip1_win=0
     # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 2:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 2:
       skip1+=1
-
-
 
     if skip2 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
@@ -341,16 +339,14 @@ def test_122():
       skip2=0
       skip2_win=0
     # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 1:
+    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 1 or int(test_1[4][1:]) > 1:
       skip2+=1
 
 
-
-
-    if skip3 > 4:
+    if skip3 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L3_lose+=1
-        skip3=0
+        # skip3=0
       else:
         W3_win+=1
         skip3_win+=1
@@ -361,19 +357,19 @@ def test_122():
         else:
           W3_win+=1
           skip3_win+=1
-          # Bet-3
+          #Bet-3
           if int(test_1[4][1:]) > 2:
             L3_lose+=3
-            # skip3=0
+            skip3=0
           else:
             W3_win+=1
             skip3_win+=1
-            # skip3=0
-    if skip3_win > 6:
+            skip3=0
+    if skip3_win > 9:
       skip3=0
       skip3_win=0
     # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 2 or int(test_1[4][1:]) > 1:
+    if int(test_1[2][1:]) > 2:
       skip3+=1
 
     
@@ -407,7 +403,6 @@ def test_122():
       skip4+=1
 
 
-
     if skip5 > 5:
       if int(test_1[0][1:]) > 1:  #if 1st or 2nd B- is more than 3 win in the row
         L5_lose+=1
@@ -434,7 +429,7 @@ def test_122():
       skip5=0
       skip5_win=0
     # if int(test_1[0][1:]) > 3 or int(test_1[2][1:]) > 5:
-    if int(test_1[0][1:]) > 1 or int(test_1[2][1:]) > 2:
+    if int(test_1[0][1:]) > 2 or int(test_1[2][1:]) > 2:
       skip5+=1
 
 
